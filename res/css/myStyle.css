@@ -7,3 +7,7 @@ ul.disk {
   list-style-type: circle;
 }
 
+#tellstate {
+  font-family: monospace;
+}
+

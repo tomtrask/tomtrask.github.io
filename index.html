@@ -7,6 +7,10 @@
           href = "res/css/myStyle.css" />
         
   </head>
+  <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+          integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+          crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.js"></script>
   <body>
     <h3>Abstract</h3>
     <p>
@@ -50,6 +54,29 @@
         </li>
       </ol>
     </p>
-    <div>Test: $Id$</div>
+    <p>
+      This ongoing project seeks to answer these questions by scraping relevant
+      sources on a regular basis and backtesting the predictions. Specifically,
+      I'm only looking at baseball (MLB) and basketball (NBA) - so I can say I'm
+      covering b'ball without fear of ambiguity.
+    </p>
+    <h3>Details</h3>
+    <h3>Current</h3>
+    <div id="tellstate">pre</div>
+
   </body>
+  <script>
+  $(document).ready(() => {
+    console.log("We are ready");
+    $.getJSON("current_days_bets.json", (data) => {
+      console.log(`We got this json: ${JSON.stringify(data)}`);
+      play_date = moment(data.playYmd.toString(), "YYYYMMDD");
+      console.log(play_date)
+      str = `Date:&nbsp;${play_date.format("YYYY-MM-DD")}\n`+
+            `League:&nbsp;${data.league}\n`;
+      repl = str.replace(/\n/g, "<br>");
+      $("#tellstate").html(repl);
+    })
+  })
+  </script>
 </html>
