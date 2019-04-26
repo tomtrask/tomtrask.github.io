@@ -1,0 +1,9 @@
+body, th, td {
+  font-family:  Helvetica, sans-serif;
+  background: ivory;
+}
+
+ul.disk {
+  list-style-type: circle;
+}
+
