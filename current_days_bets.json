@@ -2,5 +2,156 @@
     "league": "MLB",
     "playYmd": 20190425,
     "season": 2019,
-    "games": []
+    "bets": [
+        {
+            "gameYmd": 20190426,
+            "team": "BAL",
+            "versusTeam": "MIN",
+            "prediction": 5.3,
+            "versusPrediction": 6.4,
+            "pays": 1.71,
+            "probability": 0.4033616266016836,
+            "bet": 0.05445029712898403
+        },
+        {
+            "gameYmd": 20190426,
+            "team": "CHC",
+            "versusTeam": "ARI",
+            "prediction": 5.9,
+            "versusPrediction": 3.2,
+            "pays": 0.9523809523809523,
+            "probability": 0.7259194108281046,
+            "bet": 0.4381347921976144
+        },
+        {
+            "gameYmd": 20190426,
+            "team": "STL",
+            "versusTeam": "CIN",
+            "prediction": 4.7,
+            "versusPrediction": 2.6,
+            "pays": 0.6993006993006993,
+            "probability": 0.6797748966290459,
+            "bet": 0.22185299880858142
+        },
+        {
+            "gameYmd": 20190426,
+            "team": "HOU",
+            "versusTeam": "CLE",
+            "prediction": 6.6,
+            "versusPrediction": 1.9,
+            "pays": 0.8771929824561403,
+            "probability": 0.852068425590166,
+            "bet": 0.6834264307629554
+        },
+        {
+            "gameYmd": 20190426,
+            "team": "COL",
+            "versusTeam": "ATL",
+            "prediction": 4.6,
+            "versusPrediction": 4.6,
+            "pays": 1.57,
+            "probability": 0.5,
+            "bet": 0.18152866242038224
+        },
+        {
+            "gameYmd": 20190426,
+            "team": "CHW",
+            "versusTeam": "DET",
+            "prediction": 4.7,
+            "versusPrediction": 3.0,
+            "pays": 0.78125,
+            "probability": 0.6473232654462941,
+            "bet": 0.19589704521755066
+        },
+        {
+            "gameYmd": 20190426,
+            "team": "KC",
+            "versusTeam": "LAA",
+            "prediction": 4.0,
+            "versusPrediction": 3.9,
+            "pays": 1.12,
+            "probability": 0.508872303855877,
+            "bet": 0.07036543229862428
+        },
+        {
+            "gameYmd": 20190426,
+            "team": "MIA",
+            "versusTeam": "PHI",
+            "prediction": 6.2,
+            "versusPrediction": 4.7,
+            "pays": 1.56,
+            "probability": 0.6306672225417642,
+            "bet": 0.3939154421198182
+        },
+        {
+            "gameYmd": 20190426,
+            "team": "MIL",
+            "versusTeam": "NYM",
+            "prediction": 3.4,
+            "versusPrediction": 3.7,
+            "pays": 1.64,
+            "probability": 0.47340063266161186,
+            "bet": 0.15230345745527757
+        },
+        {
+            "gameYmd": 20190426,
+            "team": "NYY",
+            "versusTeam": "SF",
+            "prediction": 4.4,
+            "versusPrediction": 3.6,
+            "pays": 0.7874015748031497,
+            "probability": 0.5706115002102904,
+            "bet": 0.025288105477359112
+        },
+        {
+            "gameYmd": 20190426,
+            "team": "OAK",
+            "versusTeam": "TOR",
+            "prediction": 3.5,
+            "versusPrediction": 3.6,
+            "pays": 1.2,
+            "probability": 0.49112769614412305,
+            "bet": 0.06706744293089226
+        },
+        {
+            "gameYmd": 20190426,
+            "team": "PIT",
+            "versusTeam": "LA",
+            "prediction": 4.7,
+            "versusPrediction": 2.3,
+            "pays": 1.6,
+            "probability": 0.7032578397035165,
+            "bet": 0.5177939895182143
+        },
+        {
+            "gameYmd": 20190426,
+            "team": "WSH",
+            "versusTeam": "SD",
+            "prediction": 4.8,
+            "versusPrediction": 3.0,
+            "pays": 0.5747126436781609,
+            "probability": 0.6555488682957988,
+            "bet": 0.05620389913048865
+        },
+        {
+            "gameYmd": 20190426,
+            "team": "TB",
+            "versusTeam": "BOS",
+            "prediction": 4.0,
+            "versusPrediction": 3.2,
+            "pays": 1.36,
+            "probability": 0.5706115002102904,
+            "bet": 0.2548846621296217
+        },
+        {
+            "gameYmd": 20190426,
+            "team": "TEX",
+            "versusTeam": "SEA",
+            "prediction": 5.4,
+            "versusPrediction": 5.6,
+            "pays": 1.53,
+            "probability": 0.48225977997269354,
+            "bet": 0.14386747930125154
+        }
+    ]
 }

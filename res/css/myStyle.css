@@ -11,3 +11,7 @@ ul.disk {
   font-family: monospace;
 }
 
+.num {
+  text-align: right;
+}
+

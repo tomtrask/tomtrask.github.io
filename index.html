@@ -62,7 +62,9 @@
     </p>
     <h3>Details</h3>
     <h3>Current</h3>
-    <div id="tellstate">pre</div>
+    <div id="tellstate">
+    </div>
+    <table id="foo"></table>
 
   </body>
   <script>
@@ -76,6 +78,25 @@
             `League:&nbsp;${data.league}\n`;
       repl = str.replace(/\n/g, "<br>");
       $("#tellstate").html(repl);
+
+      var c = [];
+      c.push("<tr><th>Team</th><th>Against</th><th colspan=2>Prediction</th>"+
+             "<th>P(win)</th><th>b</th><th>f<sup>*</sup></th></tr>");
+      $.each(data.bets, function(i, item) {             
+          console.log(item.team);
+          c.push("<tr><td>" + item.team+ "</td>");
+          c.push("<td>" + item.versusTeam+ "</td>");               
+          c.push("<td class='num'>" + item.prediction.toFixed(1)+ "</td>");
+          c.push("<td class='num'>" + item.versusPrediction.toFixed(1)+ "</td>");
+          c.push("<td class='num'>" + (item.probability*100).toFixed(1)+ "%</td>");
+          c.push("<td class='num'>" + item.pays.toFixed(3)+ "</td>");
+          c.push("<td class='num'>" + (item.bet*100).toFixed(1)+ "%</td>");
+          c.push("</tr>");
+      });
+      console.log(c.join(""));
+      console.log(`Table: ${$('#foo')}`);
+      $('#foo').html(c.join(""));
+
     })
   })
   </script>
