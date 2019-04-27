@@ -82,7 +82,20 @@
       var c = [];
       c.push("<tr><th>Team</th><th>Against</th><th>TOD</th>"+
              "<th colspan=2>Prediction</th>"+
-             "<th>P(win)</th><th>b</th><th>f<sup>*</sup></th></tr>");
+             "<th>P(win)</th><th>Implied<br>Prob</th><th>f<sup>*</sup></th></tr>");
+      data.bets.sort((a, b) => {
+        if (a.tod > b.tod) {
+          return 1;
+        } else if (a.tod < b.tod) {
+          return -1;
+        }
+        console.log(`${a.tod}`);
+        if (a.team > b.team) {
+          return 1;
+        }
+        return -1;
+      });
+
       $.each(data.bets, function(i, item) {             
           console.log(item);
           c.push("<tr><td>" + item.team+ "</td>");
@@ -91,7 +104,8 @@
           c.push("<td class='num'>" + item.prediction.toFixed(1)+ "</td>");
           c.push("<td class='num'>" + item.versusPrediction.toFixed(1)+ "</td>");
           c.push("<td class='num'>" + (item.probability*100).toFixed(1)+ "%</td>");
-          c.push("<td class='num'>" + item.pays.toFixed(3)+ "</td>");
+          // c.push("<td class='num'>" + item.pays.toFixed(3)+ "</td>");
+          c.push(`<td class='num'>${(100/(1+item.pays)).toFixed(1)}%</td>`);
           c.push("<td class='num'>" + (item.bet*100).toFixed(1)+ "%</td>");
           c.push("</tr>");
       });
