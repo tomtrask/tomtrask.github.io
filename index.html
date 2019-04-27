@@ -80,12 +80,14 @@
       $("#tellstate").html(repl);
 
       var c = [];
-      c.push("<tr><th>Team</th><th>Against</th><th colspan=2>Prediction</th>"+
+      c.push("<tr><th>Team</th><th>Against</th><th>TOD</th>"+
+             "<th colspan=2>Prediction</th>"+
              "<th>P(win)</th><th>b</th><th>f<sup>*</sup></th></tr>");
       $.each(data.bets, function(i, item) {             
-          console.log(item.team);
+          console.log(item);
           c.push("<tr><td>" + item.team+ "</td>");
-          c.push("<td>" + item.versusTeam+ "</td>");               
+          c.push(`<td>${item.versusTeam}</td>`);               
+          c.push(`<td>${item.tod}</td>`);
           c.push("<td class='num'>" + item.prediction.toFixed(1)+ "</td>");
           c.push("<td class='num'>" + item.versusPrediction.toFixed(1)+ "</td>");
           c.push("<td class='num'>" + (item.probability*100).toFixed(1)+ "%</td>");
