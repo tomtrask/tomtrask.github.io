@@ -7,7 +7,7 @@ ul.disk {
   list-style-type: circle;
 }
 
-#tellstate {
+div.tellstate {
   font-family: monospace;
 }
 
@@ -15,3 +15,6 @@ ul.disk {
   text-align: right;
 }
 
+.center {
+  text-align: center;
+}
