@@ -30,10 +30,10 @@
       $("#tellstate").html(repl);
 
       var c = [];
-      c.push("<tr><th>Team</th><th>Against</th><th>TOD</th>"+
-             "<th colspan=2>Prediction</th>"+
+      c.push("<tr><th>Game Start</th><th>Team</th><th>Against</th>"+
+             "<th>Prediction</th>"+
              "<th>P(W)</th><th>b</th><th>Implied<br>Prob</th>"+
-             "<th>f<sup>*</sup></th><th>gameId</th></tr>");
+             "<th>f<sup>*</sup></th><th>State</th></tr>");
       data.history.sort((a, b) => {
         if (a.gameYmd > b.gameYmd) {
           return 1;
@@ -56,12 +56,11 @@
       $.each(data.history, function(i, item) {             
           console.log(item);
           c.push("<tr>");
-          c.push(`<td>${item.gameYmd}</td>`);
+          c.push(`<td>${item.gameYmd} ${item.tod}</td>`);
           c.push(`<td>${item.team} (${item.isHome?"H":"A"})</td>`);
           c.push(`<td>${item.versusTeam}</td>`);               
-          c.push(`<td>${item.tod}</td>`);
-          c.push("<td class='num'>" + item.prediction.toFixed(1)+ "</td>");
-          c.push("<td class='num'>" + item.versusPrediction.toFixed(1)+ "</td>");
+          c.push(`<td class='center'>${item.prediction.toFixed(1)} to `+
+                 `${item.versusPrediction.toFixed(1)}</td>`);
           c.push("<td class='num'>" + (item.probability*100).toFixed(1)+ "%</td>");
           c.push("<td class='num'>" + item.pays.toFixed(3)+ "</td>");
           c.push(`<td class='num'>${(100/(1+item.pays)).toFixed(1)}%</td>`);
