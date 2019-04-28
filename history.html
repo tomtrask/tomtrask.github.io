@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>What Is the Value of a Sports Tip?</title>
+    <link rel = "stylesheet"
+          type = "text/css"
+          href = "res/css/myStyle.css" />
+        
+  </head>
+  <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+          integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+          crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.js"></script>
+  <body>
+    <h3>History</h3>
+    <table id="history"></table>
+    <p>All game start times (TOD) are Los Angeles/America time zone</p>
+
+  </body>
+  <script>
+  $(document).ready(() => {
+    console.log("We are ready");
+    $.getJSON("current_days_bets.json", (data) => {
+      console.log(`We got this json: ${JSON.stringify(data)}`);
+      play_date = moment(data.playYmd.toString(), "YYYYMMDD");
+      console.log(play_date)
+      str = `Date:&nbsp;${play_date.format("YYYY-MM-DD")}\n`+
+            `League:&nbsp;${data.league}\n`;
+      repl = str.replace(/\n/g, "<br>");
+      $("#tellstate").html(repl);
+
+      var c = [];
+      c.push("<tr><th>Team</th><th>Against</th><th>TOD</th>"+
+             "<th colspan=2>Prediction</th>"+
+             "<th>P(W)</th><th>b</th><th>Implied<br>Prob</th>"+
+             "<th>f<sup>*</sup></th><th>gameId</th></tr>");
+      data.history.sort((a, b) => {
+        if (a.gameYmd > b.gameYmd) {
+          return 1;
+        } else if (a.gameYmd < b.gameYmd) {
+          return -1;
+        }
+
+        if (a.tod > b.tod) {
+          return 1;
+        } else if (a.tod < b.tod) {
+          return -1;
+        }
+        console.log(`${a.tod}`);
+        if (a.team > b.team) {
+          return 1;
+        }
+        return -1;
+      });
+
+      $.each(data.history, function(i, item) {             
+          console.log(item);
+          c.push("<tr>");
+          c.push(`<td>${item.gameYmd}</td>`);
+          c.push(`<td>${item.team} (${item.isHome?"H":"A"})</td>`);
+          c.push(`<td>${item.versusTeam}</td>`);               
+          c.push(`<td>${item.tod}</td>`);
+          c.push("<td class='num'>" + item.prediction.toFixed(1)+ "</td>");
+          c.push("<td class='num'>" + item.versusPrediction.toFixed(1)+ "</td>");
+          c.push("<td class='num'>" + (item.probability*100).toFixed(1)+ "%</td>");
+          c.push("<td class='num'>" + item.pays.toFixed(3)+ "</td>");
+          c.push(`<td class='num'>${(100/(1+item.pays)).toFixed(1)}%</td>`);
+          c.push(`<td class='num'>${(item.bet*100).toFixed(1)}%</td>`);
+          c.push(`<td>${item.mlbGame.length ? item.mlbGame[0].game_status : "N/A"}</td>`);
+          c.push("</tr>");
+      });
+      console.log(c.join(""));
+      console.log(`Table: ${$('#history')}`);
+      $('#history').html(c.join(""));
+
+    })
+  })
+  </script>
+</html>
