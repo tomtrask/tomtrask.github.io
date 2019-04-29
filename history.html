@@ -16,26 +16,25 @@
     <h4>Notes</h4>
     <ul>
       <li>
-        20190429 - match on all details (date, time, team names). This results
+        2019-04-28 - still not scrubbing games with improbable odds (e.g. -110
+        vs 3000; this is improbable because the sum of implied probability of
+        a win is significantly below 1 hence we know that one payoff or the
+        other is simply wrong. We don't know which one, though)
+      </li>
+      <li>
+        2019-04-29 - match on all details (date, time, team names). This results
         in substantial change to net results. Was 87% loss yesterday, is now a
         78% loss to the same date.
       </li>
       <li>
-        20190429 - relaxed exact match rules for single game (double-headers
-        will continue to not match). This dropped return to yesterday to -73%.
+        2019-04-29 - relaxed exact match rules for single game (double-headers
+        will continue to not match). This dropped return to yesterday to -71%.
       </li>
     </ul>
     <h4>Summary to Date</h4>
     <div id="summary" class="tellstate"></div>
     <table id="history"></table>
     <p>All game start times (TOD) are Los Angeles/America time zone</p>
-    <p>
-      As of 2019-04-28 I do not scrub games where the sum of implied
-      probabilities is significantly less than 1. Generally such games are a
-      sign of bad data or an single bad advertised payoff but that can't be
-      resolved mechanically.
-    </p>
-
   </body>
   <script>
   $(document).ready(() => {
@@ -143,6 +142,8 @@
       summary.push(`Games Won:&nbsp;${games_won} `+
                    `(${(100*games_won/games_bet).toFixed(0)}%, `+
                    `W/L = ${games_won}/${games_bet-games_won})<br/>`);
+      summary.push(`Initial Stake:&nbsp;$${initial_stake}<br/>`);
+      summary.push(`Current Stake (end of ${at_day}):&nbsp;$${stake}<br/>`);
       $('#summary').html(summary.join(""));
     })
   })
