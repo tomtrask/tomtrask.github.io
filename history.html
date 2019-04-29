@@ -13,6 +13,19 @@
   <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.js"></script>
   <body>
     <h3>History</h3>
+    <h4>Notes</h4>
+    <ul>
+      <li>
+        20190429 - match on all details (date, time, team names). This results
+        in substantial change to net results. Was 87% loss yesterday, is now a
+        78% loss to the same date.
+      </li>
+      <li>
+        20190429 - relaxed exact match rules for single game (double-headers
+        will continue to not match). This dropped return to yesterday to -73%.
+      </li>
+    </ul>
+    <h4>Summary to Date</h4>
     <div id="summary" class="tellstate"></div>
     <table id="history"></table>
     <p>All game start times (TOD) are Los Angeles/America time zone</p>
