@@ -13,6 +13,8 @@
   <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.js"></script>
   <body>
     <h3>History</h3>
+    <h4>Links</h4>
+    <a href="#" onclick="do_download()">Download</a>
     <h4>Notes</h4>
     <ul>
       <li>
@@ -37,6 +39,7 @@
     <p>All game start times (TOD) are Los Angeles/America time zone</p>
   </body>
   <script>
+  const extracts = [];
   $(document).ready(() => {
     $.getJSON("current_days_bets.json", (data) => {
       play_date = moment(data.playYmd.toString(), "YYYYMMDD");
@@ -90,6 +93,14 @@
         }
         bet_side = item.is_home ? "home" : "away";
         other_side = item.is_home ? "away" : "home";
+        const extracts_row = [];
+        extracts_row.push(item.gameYmd);
+        extracts_row.push(item.tod);
+        extracts_row.push(item.team);
+        extracts_row.push(item.versusTeam);
+        extracts_row.push(item.probability.toFixed(5));
+        extracts_row.push((1/(1+item.pays)).toFixed(5));
+
         c.push("<tr>");
         c.push(`<td>${item.gameYmd} ${item.tod}</td>`);
         c.push(`<td>${item.team} (${item.isHome?"H":"A"})</td>`);
@@ -111,6 +122,8 @@
           c.push(`<td>${results.game_status}</td>`);
           c.push(`<td class='center'>${is_win ? "W" : "L"}</td>`);
           c.push(`<td class='num'>${today_stake}</td>`);
+          extracts_row.push(is_win ? 1 : 0);
+
           if (bet_dollars >= lower_bet_limit) {
             ++games_bet;
             if (is_win) {
@@ -123,6 +136,7 @@
           } else {
             c.push("<td colspan=2><em>[bet below limit]</em></td>");
           }
+          extracts.push(extracts_row);
         } else {
           c.push("<td colspan=3><em>[no match]</em></td>");
         }
@@ -147,5 +161,49 @@
       $('#summary').html(summary.join(""));
     })
   })
+
+  const do_download = () => {
+    /*
+    const rows = [
+      ["name1", "city1", "some other info"],
+      ["name2", "city2", "more info"]
+    ];
+    */
+
+    // let csvContent = "data:text/csv;charset=utf-8,";
+    let csvContent = "";
+
+    extracts.forEach((rowArray) => {
+        const row = rowArray.join(",");
+        csvContent += row + "\r\n";
+    });
+
+    console.log(csvContent);
+    const filename = "funky.csv";
+
+    var blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    if (navigator.msSaveBlob) { // IE 10+
+        navigator.msSaveBlob(blob, filename);
+    } else {
+        var link = document.createElement("a");
+        if (link.download !== undefined) { // feature detection
+            // Browsers that support HTML5 download attribute
+            var url = URL.createObjectURL(blob);
+            link.setAttribute("href", url);
+            link.setAttribute("download", filename);
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    }
+    
+    /*
+    let encodedUri = encodeURI(csvContent);
+    window.open(encodedUri);
+    */
+
+    console.log("Acknowledging the click");
+  }
   </script>
 </html>
