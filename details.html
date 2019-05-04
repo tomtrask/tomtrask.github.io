@@ -65,11 +65,19 @@
       on this side
       </div>
       Kelly criterion lets us tie up gambling in a nice neat economic package.
-      Wagers are a simple game-theoretical proposition that my estimate of the
+      Wagers are a simple, game-theoretical, proposition that my estimate of the
       value of a good (a win) exceeds the market price. The greater the
       disparity between price and valuation, the more I will demand (wager).
       The value that Kelly adds is simply to tell us how much of our stake to
-      wager on a given game (much like asset allocation in securities).
+      wager on a given game (much like asset allocation in securities). This
+      isn't a perfect analogy though. It explains demand but not supply. From
+      the sell-side, gambling is simply a matter of balancing demands for
+      competitive commodity products. Too much demand for product A and the
+      price of A will rise and B will decline. So from the bookmaker's side the
+      better model would be that of a bank. If loan demand is high, savings
+      rates will rise. If there's a surplus of savings over loan demand, savings
+      rates will fall (and so will loan rates - loan rates will never be
+      lower than savings rates).
     </p>
     <h3>Seasonal Results</h3>
     <h4>2018 MLB</h4>
@@ -83,10 +91,10 @@
       Coast and copied all the values into a csv file. I also used an mlb public
       API to get game details and correlate those details back with the
       (manually) scraped betting details. It was this manual scraping that
-      accounts for some holes in my database. Anyway, I did get details for
-      something over 1000 games [TBD - fill in details of dataset here]. The
-      net results of the paper bets, starting with a stake of $10,000 look like
-      figure 1.
+      accounts for some holes in my database. Ultimately, I did get details for
+      1901 games and bet on 1869 (98.3%) of those games. We bet both sides of
+      four games so the total number of bets is 1873. Paper bets starting with
+      a stake of $10,000 look like figure 1.
     </p>
     <div style="width:100%">
       <img style="display:block;margin-left:auto;margin-right:auto;" src="res/images/MLB_2018_stake_history.png">
@@ -94,6 +102,14 @@
         Figure 1: Stake value over span of 2018 MLB season
       </p>
     </div>
+    <p>
+      What can we make of this? It appears that from day 1 to day 130 we didn't
+      benefit from betting at all. The final 3 weeks of the season seem to be
+      the one time where the predictions vary enough from the market pricing
+      that we can capitalize on those predictions. The red line is an
+      exponential curve fit to the actual stake and the right hand intercept is
+      about $27465.
+    </p>
     <h4>Late 2018-2019 NBA</h4>
     <h4>2019 MLB</h4>
   </body>
