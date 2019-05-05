@@ -18,3 +18,7 @@ div.tellstate {
 .center {
   text-align: center;
 }
+
+.code_block {
+  margin-left: 2em;
+}

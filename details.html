@@ -111,6 +111,61 @@
       about $27465.
     </p>
     <h4>Late 2018-2019 NBA</h4>
+    <p>
+      I started tracking this season late and only engaged because I figured out
+      a way to scrape the odds from the oddsshark site without having to view
+      the page daily. Now I have a clean set of daily odds and predictions for
+      the period after February 5, 2019. Add to that the fact that basketball
+      is much higher than the standard deviation of a side's score (mean ~90,
+      sd ~12-13). That is not true of baseball (mean score 4.547, sd 3.212). 
+    </p>
+    <p>
+      I'm going to have to come back to this.
+    </p>
     <h4>2019 MLB</h4>
+    <p>
+      The 2019 baseball predictions have been nothing short of abysmal and this
+      is a good thing. As of May 3, I was down about 83% even though the
+      predictions indicated that the sides it picked would win ~65% of the
+      time. It's pretty obvious our estimates are biased. On any given day we
+      can compute our CI of our predictions like so:
+      <div class="code_block">
+        <code>
+          num_games_played = len(games_played)<br>
+          avg_prob_win = sum(game["prob_win"])/num_games_played<br>
+          p = avg_prob_win<br>
+          std_err = math.sqrt(p*(1-p)/num_games_played)<br>
+          z = 1.96 # 95% CI<br>
+          ci = (p-z*std_err, p+z*std_err)<br>
+        </code>
+      </div>
+    </p>
+    <p>
+      As of May 1 our 95% CI is (.608, .698) and our average experienced win
+      rate is 0.466. So problem solved, right? Our predicted scores suck
+      because they overestimate the likelihood of a win.
+    </p>
+    <p>
+      Or not? Our experienced rate not only significantly below prediction, it
+      was below 50%. I suspect that as long as experienced win rate is above
+      50% any strategy performs fine. One way to test this would be to run
+      paper bets against the favorite side of all games, assuming the predicted
+      probability is 90%. This presumes that the market favorite is, in fact,
+      more likely to win - we should demonstrate this. This is all future work.
+      One thing I can say today is that our experienced win rate was
+      significantly below our predicted rate since game 29 of the season. Game
+      29 was played on day 3 of the season. Hypothetically we could bet until
+      our predictions are clearly out of control. That means, in this case, we
+      would have bet on all relevant games in the first three days of the
+      season and then stopped betting. Our net gain for this season would be
+      $-1038 or about a 10% loss. It seems bad for a 3 day season but it's much
+      better than hanging on to a losing strategy.
+    </p>
+    <h4>To Do</h4>
+      <ul>
+        <li>Add details to history to show CI</li>
+        <li>test CI thesis on 2018 data</li>
+        <li>convince myself that market favorites are, in fact, favorites</li>
+      </ul>
   </body>
 </html>
