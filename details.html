@@ -175,23 +175,41 @@
       favorite teams was 1.131% so the market was within 1 SE of the final,
       experienced win rate.
     </p>
+    <h3>Conclusions</h3>
     <p>
-      Now what does this mean to me when I'm making a bet? Nothing, I suspect.
-      But if my predictions are biased, they won't work. When I'm making
-      predictions, my residual error will tell me if my predictions are fakakta
-      and if I didn't make the predictions, all I seem to have is this CI
-      approach. On the other hand, I think unbiased predictions are sufficient
-      but not necessary. I suspect that as long as my experienced win rate is
-      higher than my price, I will have a net gain using the Kelly criterion.
+      What I've learned in this experimentation can be boiled down to two main
+      points.
     </p>
     <p>
+      First, whenever I've tried to model things I wind up, at some point,
+      computing a Pearson's correlation coefficient and it tells me that my
+      model explains so much of the error in the observations that went into
+      creating that model. It's that litmus test that says "this model probably
+      does what you want" or not. And of course it's nothing to come up with a
+      model that has a very low Pearson's coefficient and still advertise the
+      model results. That's what Oddsshark is doing, that's what most public
+      predictions entail (the DJIA is going to 36k, the DJIA is going to 10k,
+      gold is going to $5k, oil is going to $150/bbl). Oddsshark is predicting
+      things with a schedule (to their credit) but their predictions are
+      ephemeral and there's no record to hold them to their predictions after
+      the fact. I've attempted to construct such a record and stumbled across
+      at least one method of confirming that their predictions have value (they
+      do not). The good news is that even though oddsshark has hidden the
+      method by which they make projections, we can arrive at an evaluation of
+      their projections in a relatively short timeframe within a single season.
+      So buyer beware - and here's how.
     </p>
-    <h4>To Do</h4>
-      <ul>
-        <li>Add details to history to show CI</li>
-        <li>test CI thesis on 2018 data</li>
-      </ul>
     <p>
+      Second, I now have an actual practical understanding of the claim about
+      markets being the best estimate of probability. Best estimate in this
+      claim simply means the least biased. It's easy to see how to measure this
+      bias in the case of betting odds - they convert simply into probabilities.
+      What's harder is to see bias between score predictions and win rates or
+      differences between predicted scores and actual odds. In the end, it's
+      only win/loss ratios that pay so even if you could demonstrate that
+      predicted scores are unbiased (have the same mean as actual scores) it
+      wouldn't matter to the outcome of our test nor would it be comparable to
+      the amount of bias in the odds market's odds setting.
     </p>
   </body>
 </html>
