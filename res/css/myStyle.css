@@ -21,8 +21,10 @@ div.tellstate {
 
 .code_block {
   margin-left: 2em;
+  white-space: pre-line;
 }
 
 .warn {
   background: yellow;
 }
+

@@ -56,13 +56,13 @@
       <a href="https://en.wikipedia.org/wiki/Kelly_criterion">Kelly criterion
       </a>.
       <div class="code_block">
-      <code>f_star = p * (b - 1) + 1</code><br>
-      Where:<br>
-      <code>p</code> = my valuation, or probability of win<br>
+      <code>f_star = p * (b - 1) + 1</code>
+      Where:
+      <code>p</code> = my valuation, or probability of win
       <code>b</code> = payoff of a single dollar bet
-      (<code>(1-price)/price</code>)<br>
+          (<code>(1-price)/price</code>)
       <code>f_star</code> = the fraction of some nominal bet one should wager
-      on this side
+          on this side
       </div>
       Kelly criterion lets us tie up gambling in a nice neat economic package.
       Wagers are a simple, game-theoretical, proposition that my estimate of the
@@ -131,12 +131,12 @@
       can compute our CI of our predictions like so:
       <div class="code_block">
         <code>
-          num_games_played = len(games_played)<br>
-          avg_prob_win = sum(game["prob_win"])/num_games_played<br>
-          p = avg_prob_win<br>
-          std_err = math.sqrt(p*(1-p)/num_games_played)<br>
-          z = 1.96 # 95% CI<br>
-          ci = (p-z*std_err, p+z*std_err)<br>
+          num_games_played = len(games_played)
+          avg_prob_win = sum(game["prob_win"])/num_games_played
+          p = avg_prob_win
+          std_err = math.sqrt(p*(1-p)/num_games_played)
+          z = 1.96 # 95% CI
+          ci = (p-z*std_err, p+z*std_err)
         </code>
       </div>
     </p>
@@ -174,6 +174,53 @@
       58.88%. Among those favorite sides 57.87% went on to win the game. SE of
       favorite teams was 1.131% so the market was within 1 SE of the final,
       experienced win rate.
+    </p>
+    <h4>Results of Analysis of All Seasons</h4>
+    <div class="code_block">
+      Begin do_it_all(2018 MLB) results:
+      &nbsp;&nbsp;   Number of games: 1895
+      &nbsp;&nbsp;Number of bets: 1867
+      &nbsp;&nbsp;Number of both-sides games bet: 4
+      &nbsp;&nbsp;Predicted win rate: 64.83%
+      &nbsp;&nbsp;Actual win rate (bets only): 51.63%
+      &nbsp;&nbsp;SE of predictions: 1.105%
+      &nbsp;&nbsp;z-score of win rate: -11.9415
+      &nbsp;&nbsp;P(z &lt;= -11.9415): 0.000000%
+      End of do_it_all(2018 MLB results)
+
+      Begin do_it_all(2018-19 NBA) results:
+      &nbsp;&nbsp;   Number of games: 482
+      &nbsp;&nbsp;Number of bets: 476
+      &nbsp;&nbsp;Number of both-sides games bet: 475
+      &nbsp;&nbsp;Predicted win rate: 52.55%
+      &nbsp;&nbsp;Actual win rate (bets only): 45.80%
+      &nbsp;&nbsp;SE of predictions: 2.291%
+      &nbsp;&nbsp;z-score of win rate: -2.9465
+      &nbsp;&nbsp;P(z &lt;= -2.9465): 0.160696%
+      End of do_it_all(2018-19 NBA results)
+
+      Begin do_it_all(2019 MLB) results:
+      &nbsp;&nbsp;   Number of games: 539
+      &nbsp;&nbsp;Number of bets: 524
+      &nbsp;&nbsp;Number of both-sides games bet: 0
+      &nbsp;&nbsp;Predicted win rate: 64.71%
+      &nbsp;&nbsp;Actual win rate (bets only): 47.52%
+      &nbsp;&nbsp;SE of predictions: 2.090%
+      &nbsp;&nbsp;z-score of win rate: -8.2275
+      &nbsp;&nbsp;P(z &lt;= -8.2275): 0.000000%
+      End of do_it_all(2019 MLB results)
+    </div>
+    <p>
+      Note that the MLB bets wildly overestimate the probability of a win while
+      the end of the NBA season has a P value of 0.00161 - it seems like it
+      might be a decent model. It isn't. That said, we do see that that tail
+      end of the NBA season might be analogous to that tail end of the 2018
+      MLB season. I suspect that what's happening is that the model is being
+      trained continuously throughout the season and that the model at the
+      beginning of the season is simply overtrained on a previous season and
+      that the season-to-season changes are sufficiently high that the model
+      is unreliable until it's trained on the current season. Future work might
+      look for a way to detect this change in the model predictions.
     </p>
     <h3>Conclusions</h3>
     <p>
