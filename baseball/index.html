@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>What Is the Value of a Sports Tip?</title>
+    <link rel = "stylesheet"
+          type = "text/css"
+          href = "/res/css/myStyle.css" />
+        
+  </head>
+  <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+          integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+          crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.js"></script>
+  <body>
+    <h3>Abstract</h3>
+    <p>
+      The website <a href="//oddshark.com">oddsshark.com</a> acts as a type of
+      marketplace for several online sportsbooks. As an inducement to visit
+      their site and bet at one of their clients, they gave predicted scores
+      for each sporting event they cover. The projected scores are real numbers
+      with a single decimal point precision.
+    </p>
+    <p>
+      There are a number of ways to turn those projections into
+      P(win for team x) and that probability can be used to compute a rational
+      bet for one team or the other in all contests for which the vig (spread
+      between the payouts for either team in a contest) doesn't straddle that
+      probability. It is commonly accepted belief that the market is the best
+      estimate of the probability of a team winning. If the payout for a given
+      match is -110/-110 (essentially even money in American odds) we expect
+      the underlying probability of either team winning is 50%.
+    </p>
+    <p>
+      This raises several questions in my mind:
+      <ol>
+        <li>
+          Is the probability of a win significantly different from the market
+          predicted probability of a win (market probability is simply the
+          payout on offer from a sportsbook)
+        </li>
+        <li>
+          If the projected probability is different, is it a better predictor
+          of victory than the market probability?
+        </li>
+        <li>
+          How can I even evaluate the performance of the market in predicting
+          winners? Is the market determined probability <em>really</em> the best
+          probability?
+        </li>
+        <li>
+          If the predicted probability is better than the market, can we produce
+          an equally good prediction? Are we as good as those professional
+          handicappers?
+        </li>
+      </ol>
+    </p>
+    <p>
+      This ongoing project seeks to answer these questions by scraping relevant
+      sources on a regular basis and backtesting the predictions. Specifically,
+      I'm only looking at baseball (MLB) and basketball (NBA) - so I can say I'm
+      covering b'ball without fear of ambiguity.
+    </p>
+    <h3>Details</h3>
+    <p>
+      Details can be found <a href="details.html">here</a>.
+    </p>
+    <h3>Current Predictions</h3>
+    <p>
+      This is the set of bets advertised today on
+      <a id="oddsshark_link">oddsshark.com</a>. Click
+      <a href="history.html">here</a> to view season's results to date
+    </p>
+    <div id="tellstate">
+    </div>
+    <table id="foo"></table>
+    <h4>Prediction Notes</h4>
+    <ul>
+      <li>
+        All game start times (TOD) are Los Angeles/America time zone.
+      </li>
+      <li>
+        Game state is current as of the time the details were captured. If it
+        is missing, that means the oddsshark game doesn't match an mlb.com game.
+      </li>
+    </ul>
+
+  </body>
+  <script>
+  $(document).ready(() => {
+    $.getJSON("current_days_bets.json", (data) => {
+      play_date = moment(data.playYmd.toString(), "YYYYMMDD");
+      href = `//www.oddsshark.com/${data.league.toLowerCase()}/odds`;
+      $("#oddsshark_link").attr("href", href);
+
+      str = `Date:&nbsp;${play_date.format("YYYY-MM-DD")}\n`+
+            `League:&nbsp;${data.league}\n`;
+      repl = str.replace(/\n/g, "<br>");
+      $("#tellstate").html(repl);
+
+      var c = [];
+      c.push("<tr><th>Team</th><th>Against</th><th>TOD</th>"+
+             "<th colspan=2>Prediction</th>"+
+             "<th>P(W)</th><th>b</th><th>Implied<br>Prob</th>"+
+             "<th>f<sup>*</sup></th><th>Game Status</th></tr>");
+      data.bets.sort((a, b) => {
+        if (a.tod > b.tod) {
+          return 1;
+        } else if (a.tod < b.tod) {
+          return -1;
+        }
+        if (a.team > b.team) {
+          return 1;
+        }
+        return -1;
+      });
+
+      $.each(data.bets, function(i, item) {             
+          c.push(`<tr><td>${item.team} (${item.isHome?"H":"A"})</td>`);
+          c.push(`<td>${item.versusTeam}</td>`);               
+          c.push(`<td>${item.tod}</td>`);
+          c.push("<td class='num'>" + item.prediction.toFixed(1)+ "</td>");
+          c.push("<td class='num'>" + item.versusPrediction.toFixed(1)+ "</td>");
+          c.push("<td class='num'>" + (item.probability*100).toFixed(1)+ "%</td>");
+          c.push("<td class='num'>" + item.pays.toFixed(3)+ "</td>");
+          c.push(`<td class='num'>${(100/(1+item.pays)).toFixed(1)}%</td>`);
+          c.push(`<td class='num'>${(item.bet*100).toFixed(1)}%</td>`);
+          c.push(`<td>${item.mlbGame.length ? item.mlbGame[0].game_status : "N/A"}</td>`);
+          c.push("</tr>");
+      });
+      $('#foo').html(c.join(""));
+
+    })
+  })
+  </script>
+</html>
