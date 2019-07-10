@@ -1,6 +1,6 @@
 {
   "league": "MLB",
-  "playYmd": 20190709,
+  "playYmd": 20190710,
   "season": 2019,
   "bets": [],
   "history": [
@@ -26407,11 +26407,11 @@
       "team": "NYY",
       "isHome": 1,
       "versusTeam": "BAL",
-      "prediction": 6.1,
-      "versusPrediction": 2.5,
-      "pays": 0.39215686274509803,
-      "probability": 0.7859379475530475,
-      "bet": 0.2400797138133184,
+      "prediction": 4.2,
+      "versusPrediction": 1.6,
+      "pays": 0.43478260869565216,
+      "probability": 0.7164382780774495,
+      "bet": 0.06424631765558311,
       "mlbGame": [
         {
           "_id": "2019_05_15_balmlb_nyamlb_1",
@@ -26453,11 +26453,11 @@
       "team": "NYY",
       "isHome": 1,
       "versusTeam": "BAL",
-      "prediction": 4.2,
-      "versusPrediction": 1.6,
-      "pays": 0.43478260869565216,
-      "probability": 0.7164382780774495,
-      "bet": 0.06424631765558311,
+      "prediction": 6.1,
+      "versusPrediction": 2.5,
+      "pays": 0.39215686274509803,
+      "probability": 0.7859379475530475,
+      "bet": 0.2400797138133184,
       "mlbGame": [
         {
           "_id": "2019_05_15_balmlb_nyamlb_2",
