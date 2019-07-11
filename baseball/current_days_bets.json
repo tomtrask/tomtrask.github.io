@@ -1,8 +1,45 @@
 {
   "league": "MLB",
-  "playYmd": 20190710,
+  "playYmd": 20190711,
   "season": 2019,
-  "bets": [],
+  "bets": [
+    {
+      "gameYmd": 20190711,
+      "tod": 1705,
+      "team": "TEX",
+      "isHome": 1,
+      "versusTeam": "HOU",
+      "prediction": 6.5,
+      "versusPrediction": 3.0,
+      "pays": 1.2,
+      "probability": 0.7794670476460539,
+      "bet": 0.5956895873510989,
+      "mlbGame": [
+        {
+          "_id": "2019_07_11_houmlb_texmlb_1",
+          "away_team": "Astros",
+          "away_team_errors": 0,
+          "away_team_hits": 0,
+          "away_team_runs": 0,
+          "game_league": "AA",
+          "game_start_time": 1705,
+          "game_status": "PRE_GAME",
+          "game_tag": "sg_game",
+          "home_team": "Rangers",
+          "home_team_errors": 0,
+          "home_team_hits": 0,
+          "home_team_runs": 0,
+          "p_pitcher_away": "",
+          "p_pitcher_away_losses": 0,
+          "p_pitcher_away_wins": 0,
+          "p_pitcher_home": "",
+          "p_pitcher_home_losses": 0,
+          "p_pitcher_home_wins": 0,
+          "game_ymd": 20190711
+        }
+      ]
+    }
+  ],
   "history": [
     {
       "gameYmd": 20190328,
@@ -26407,11 +26444,11 @@
       "team": "NYY",
       "isHome": 1,
       "versusTeam": "BAL",
-      "prediction": 4.2,
-      "versusPrediction": 1.6,
-      "pays": 0.43478260869565216,
-      "probability": 0.7164382780774495,
-      "bet": 0.06424631765558311,
+      "prediction": 6.1,
+      "versusPrediction": 2.5,
+      "pays": 0.39215686274509803,
+      "probability": 0.7859379475530475,
+      "bet": 0.2400797138133184,
       "mlbGame": [
         {
           "_id": "2019_05_15_balmlb_nyamlb_1",
@@ -26453,11 +26490,11 @@
       "team": "NYY",
       "isHome": 1,
       "versusTeam": "BAL",
-      "prediction": 6.1,
-      "versusPrediction": 2.5,
-      "pays": 0.39215686274509803,
-      "probability": 0.7859379475530475,
-      "bet": 0.2400797138133184,
+      "prediction": 4.2,
+      "versusPrediction": 1.6,
+      "pays": 0.43478260869565216,
+      "probability": 0.7164382780774495,
+      "bet": 0.06424631765558311,
       "mlbGame": [
         {
           "_id": "2019_05_15_balmlb_nyamlb_2",
