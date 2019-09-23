@@ -1,8 +1,117 @@
 {
   "league": "MLB",
-  "playYmd": 20190922,
+  "playYmd": 20190923,
   "season": 2019,
-  "bets": [],
+  "bets": [
+    {
+      "gameYmd": 20190923,
+      "tod": 1605,
+      "team": "WSH",
+      "isHome": 1,
+      "versusTeam": "PHI",
+      "prediction": 5.6,
+      "versusPrediction": 2.8,
+      "pays": 0.5208333333333334,
+      "probability": 0.7311568821379608,
+      "bet": 0.2149780958428458,
+      "mlbGame": [
+        {
+          "_id": "2019_09_23_phimlb_wasmlb_1",
+          "away_team": "Phillies",
+          "away_team_errors": 0,
+          "away_team_hits": 0,
+          "away_team_runs": 0,
+          "game_league": "NN",
+          "game_start_time": 1605,
+          "game_status": "PRE_GAME",
+          "game_tag": "sg_game",
+          "home_team": "Nationals",
+          "home_team_errors": 0,
+          "home_team_hits": 0,
+          "home_team_runs": 0,
+          "p_pitcher_away": "Patrick Corbin",
+          "p_pitcher_away_losses": 7,
+          "p_pitcher_away_wins": 13,
+          "p_pitcher_home": "Zach Eflin",
+          "p_pitcher_home_losses": 12,
+          "p_pitcher_home_wins": 9,
+          "game_ymd": 20190923
+        }
+      ]
+    },
+    {
+      "gameYmd": 20190923,
+      "tod": 1610,
+      "team": "BOS",
+      "isHome": 0,
+      "versusTeam": "TB",
+      "prediction": 4.2,
+      "versusPrediction": 3.8,
+      "pays": 1.7,
+      "probability": 0.5350795797667108,
+      "bet": 0.26159697962948203,
+      "mlbGame": [
+        {
+          "_id": "2019_09_23_bosmlb_tbamlb_1",
+          "away_team": "Red Sox",
+          "away_team_errors": 0,
+          "away_team_hits": 0,
+          "away_team_runs": 0,
+          "game_league": "AA",
+          "game_start_time": 1610,
+          "game_status": "PRE_GAME",
+          "game_tag": "sg_game",
+          "home_team": "Rays",
+          "home_team_errors": 0,
+          "home_team_hits": 0,
+          "home_team_runs": 0,
+          "p_pitcher_away": "Blake Snell",
+          "p_pitcher_away_losses": 7,
+          "p_pitcher_away_wins": 6,
+          "p_pitcher_home": "Jhoulys Chacin",
+          "p_pitcher_home_losses": 11,
+          "p_pitcher_home_wins": 3,
+          "game_ymd": 20190923
+        }
+      ]
+    },
+    {
+      "gameYmd": 20190923,
+      "tod": 1840,
+      "team": "STL",
+      "isHome": 0,
+      "versusTeam": "ARI",
+      "prediction": 5.8,
+      "versusPrediction": 3.0,
+      "pays": 0.6896551724137931,
+      "probability": 0.7311568821379608,
+      "bet": 0.3413343612380042,
+      "mlbGame": [
+        {
+          "_id": "2019_09_23_slnmlb_arimlb_1",
+          "away_team": "Cardinals",
+          "away_team_errors": 0,
+          "away_team_hits": 0,
+          "away_team_runs": 0,
+          "game_league": "NN",
+          "game_start_time": 1840,
+          "game_status": "PRE_GAME",
+          "game_tag": "sg_game",
+          "home_team": "D-backs",
+          "home_team_errors": 0,
+          "home_team_hits": 0,
+          "home_team_runs": 0,
+          "p_pitcher_away": "Alex Young",
+          "p_pitcher_away_losses": 4,
+          "p_pitcher_away_wins": 7,
+          "p_pitcher_home": "Adam Wainwright",
+          "p_pitcher_home_losses": 9,
+          "p_pitcher_home_wins": 13,
+          "game_ymd": 20190923
+        }
+      ]
+    }
+  ],
   "history": [
     {
       "gameYmd": 20190328,
