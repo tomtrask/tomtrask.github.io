@@ -1,8 +1,45 @@
 {
   "league": "MLB",
-  "playYmd": 20190930,
+  "playYmd": 20191001,
   "season": 2019,
-  "bets": [],
+  "bets": [
+    {
+      "gameYmd": 20191001,
+      "tod": 1708,
+      "team": "MIL",
+      "isHome": 0,
+      "versusTeam": "WSH",
+      "prediction": 3.6,
+      "versusPrediction": 3.9,
+      "pays": 1.67,
+      "probability": 0.4736754515536008,
+      "bet": 0.1585110512862959,
+      "mlbGame": [
+        {
+          "_id": "2019_10_01_milmlb_wasmlb_1",
+          "away_team": "Brewers",
+          "away_team_errors": 0,
+          "away_team_hits": 0,
+          "away_team_runs": 0,
+          "game_league": "NN",
+          "game_start_time": 1708,
+          "game_status": "PRE_GAME",
+          "game_tag": "sg_game",
+          "home_team": "Nationals",
+          "home_team_errors": 0,
+          "home_team_hits": 0,
+          "home_team_runs": 0,
+          "p_pitcher_away": "Max Scherzer",
+          "p_pitcher_away_losses": 7,
+          "p_pitcher_away_wins": 11,
+          "p_pitcher_home": "Brandon Woodruff",
+          "p_pitcher_home_losses": 3,
+          "p_pitcher_home_wins": 11,
+          "game_ymd": 20191001
+        }
+      ]
+    }
+  ],
   "history": [
     {
       "gameYmd": 20190328,
