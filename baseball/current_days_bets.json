@@ -1,43 +1,33 @@
 {
   "league": "MLB",
-  "playYmd": 20191008,
+  "playYmd": 20191009,
   "season": 2019,
   "bets": [
     {
-      "gameYmd": 20191008,
-      "tod": 1315,
-      "team": "TB",
+      "gameYmd": 20191009,
+      "tod": 1402,
+      "team": "ATL",
       "isHome": 1,
-      "versusTeam": "HOU",
-      "prediction": 3.9,
-      "versusPrediction": 5.0,
-      "pays": 2.29,
-      "probability": 0.4043420444646992,
-      "bet": 0.14422940012613988,
-      "mlbGame": [
-        {
-          "_id": "2019_10_08_houmlb_tbamlb_1",
-          "away_team": "Astros",
-          "away_team_errors": 0,
-          "away_team_hits": 0,
-          "away_team_runs": 0,
-          "game_league": "AA",
-          "game_start_time": 1607,
-          "game_status": "PRE_GAME",
-          "game_tag": "sg_game",
-          "home_team": "Rays",
-          "home_team_errors": 0,
-          "home_team_hits": 0,
-          "home_team_runs": 0,
-          "p_pitcher_away": "Diego Castillo",
-          "p_pitcher_away_losses": 8,
-          "p_pitcher_away_wins": 5,
-          "p_pitcher_home": "Justin Verlander",
-          "p_pitcher_home_losses": 6,
-          "p_pitcher_home_wins": 21,
-          "game_ymd": 20191008
-        }
-      ]
+      "versusTeam": "STL",
+      "prediction": 4.5,
+      "versusPrediction": 2.1,
+      "pays": 1.04,
+      "probability": 0.7013442072803463,
+      "bet": 0.4141751758191408,
+      "mlbGame": []
+    },
+    {
+      "gameYmd": 20191009,
+      "tod": 1737,
+      "team": "WSH",
+      "isHome": 0,
+      "versusTeam": "LA",
+      "prediction": 3.4,
+      "versusPrediction": 4.4,
+      "pays": 1.53,
+      "probability": 0.41289168460450454,
+      "bet": 0.029160759509409582,
+      "mlbGame": []
     }
   ],
   "history": [
@@ -101416,6 +101406,52 @@
           "w_pitcher_losses": 0,
           "w_pitcher_wins": 1,
           "w_team": "Yankees"
+        }
+      ]
+    },
+    {
+      "gameYmd": 20191008,
+      "tod": 1315,
+      "team": "TB",
+      "isHome": 1,
+      "versusTeam": "HOU",
+      "prediction": 3.9,
+      "versusPrediction": 5.0,
+      "pays": 2.29,
+      "probability": 0.4043420444646992,
+      "bet": 0.14422940012613988,
+      "mlbGame": [
+        {
+          "_id": "2019_10_08_houmlb_tbamlb_1",
+          "away_team": "Astros",
+          "away_team_errors": 0,
+          "away_team_hits": 6,
+          "away_team_runs": 1,
+          "game_league": "AA",
+          "game_start_time": 1607,
+          "game_status": "FINAL",
+          "game_tag": "go_game",
+          "home_team": "Rays",
+          "home_team_errors": 0,
+          "home_team_hits": 13,
+          "home_team_runs": 4,
+          "p_pitcher_away": "Diego Castillo",
+          "p_pitcher_away_losses": 8,
+          "p_pitcher_away_wins": 5,
+          "p_pitcher_home": "Justin Verlander",
+          "p_pitcher_home_losses": 6,
+          "p_pitcher_home_wins": 21,
+          "game_ymd": 20191008,
+          "l_pitcher": "Justin Verlander",
+          "l_pitcher_losses": 1,
+          "l_pitcher_wins": 1,
+          "l_team": "Astros",
+          "sv_pitcher": "Blake Snell",
+          "sv_pitcher_saves": 1,
+          "w_pitcher": "Ryan Yarbrough",
+          "w_pitcher_losses": 0,
+          "w_pitcher_wins": 1,
+          "w_team": "Rays"
         }
       ]
     }
