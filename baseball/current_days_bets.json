@@ -1,8 +1,22 @@
 {
   "league": "MLB",
-  "playYmd": 20191016,
+  "playYmd": 20191017,
   "season": 2019,
-  "bets": [],
+  "bets": [
+    {
+      "gameYmd": 20191017,
+      "tod": 1708,
+      "team": "NYY",
+      "isHome": 1,
+      "versusTeam": "HOU",
+      "prediction": 4.5,
+      "versusPrediction": 3.7,
+      "pays": 0.8,
+      "probability": 0.5698884503839505,
+      "bet": 0.032249013363888634,
+      "mlbGame": []
+    }
+  ],
   "history": [
     {
       "gameYmd": 20190328,
