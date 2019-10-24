@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>If You Can Count Buses, You Can Count Beans</title>
+    <link rel = "stylesheet"
+          type = "text/css"
+          href = "/res/css/myStyle.css" />
+        
+  </head>
+  <body>
+    <h4>Abstract</h4>
+    <p>
+      I read about a thing called ABC, approximate bayesian computation. I saw
+      a real life question that would succumb to this approach.
+    </p>
+    <p>
+      The real life situation was this - one day, I'm driving to Costco, I see
+      a fleet bus with new front signage. The sign said Cancer.org. I saw a
+      similar bus along the same stretch of road the next day. Both buses were
+      crimson. So I ask myself - is there a cancer.org symposium in town? Is
+      this a shuttle between one meeting place and another? between hospitals?
+      Fast forward to later that week or maybe the next, I see a bus when I'm
+      driving with YT along that same stretch of road. I tell her I've seen the
+      bus before. Or is it buses? Seems like I'm seeing a single bus far too
+      frequently for chance.
+    </p>
+    <h4>Procedures</h4>
+    <p>
+      These are my initial assumptions about the buses:
+    </p>
+    <ul>
+      <li>
+        There aren't many of these buses so I can model their appearance like a
+        Poisson process.
+      </li>
+      <li>
+        The buses are traveling between housing and work (even if work is a
+        symposium and housing is hotels in the city - specious)
+      </li>
+      <li>
+        the approximate path of the buses is from SF to Menlo Park (Stanford
+        Hospital?) a total of about 20 miles.
+      </li>
+      <li>
+        My observations have all been in one stretch of 101 near SFO, I'm
+        calling that a window of about 1 mile in each of the NB and SB lanes.
+      </li>
+      <li>
+        The buses only run on week days
+      </li>
+    </ul>
+    <p>
+      I started working on this on a Wednesday (maybe) and guessed that I'd seen
+      about two weeks worth of data (probably a bit high, in retrospect). My
+      net observations on any given day consist of the number of times I've seen
+      one or two buses in the two windows I can see from the pedestrian bridge
+      at Burlingame Avenue (substituting the observations further west/north for
+      observations in those two windows). My "universe" these buses inhabit is
+      broken down into 40 such windows. My generative model consists of
+      scattering U(1,40) buses in those windows as many times as I have to to
+      simulate the number of observations I have at any moment in time. For
+      instance, on the first
+      day I have (10, 3, 0) maybe, next day maybe (11,3,0) - in those cases
+      I'd scatter buses 13 and 14 times respectively. The number of buses
+      scattered that result in the observed distribution of sightings is added
+      to our posterior distribution. Easy peasy.
+    </p>
+    <p>
+      I wrote the original code,
+      <a href="https://colab.research.google.com/drive/1m81OxYndMbA3isPwJZXk_0tUirZj49-2#scrollTo=owKjtc2Db4rv">over here</a> before I made any concerted effort to gather more
+      observations. When I did gather more information, I did my usual morning
+      walk which, it turns out, is not nearly as predictable as it should be
+      to call this anything like a rigorous investigation.
+    </p>
+    <p>
+      The original version of the code ran for a fixed number of runs, later I
+      modified that to run until it had 2000 runs that matched the expected
+      distribution.
+    </p>
+    <h4>Results</h4>
+    <p>
+      Using the first day data, (10, 4, 1), I get in one run with a 95% range
+      of 4-15 buses and a mode of 9 buses (median 8). Running this multiple
+      times I observed that the top and bottom of that 95% range vary by one
+      most of the time (so maybe if you ran it again, you'd get 3-15, maybe
+      4-14 but less frequently as high as 5-16.
+    </p>
+    <p>
+      As I piled on more observations, the range went up. More observations
+      increased the frequency of spotting two busses which didn't really fit my
+      original hypothesis that the buses were operated on behalf of cancer.org.
+      In fact, one day I saw two buses in the same window. That is, I saw my
+      Poisson model break. On that day I stood on the Peninsula overpass and
+      observed a series of four buses marked that way in a pack (fortunately
+      that is not my observation window or I'd be screwed). When those buses
+      passed the overpass I saw that they were operated by Loop and WeDriveU.
+      Personally I know I've seen those buses around Mountain view and SF
+      offices of Google. I don't know that they're all operated for Google's
+      exclusive benefit but I'll presume that the operator advertises with
+      those cancer.org and SupportPink slogans on the displays and the operator
+      obtains some benefit for the charitable non-cash donation. This fits well
+      with the fact that I didn't see any such bus before a recent date (the
+      promotion might be new, maybe because of a cancer awareness month).
+    </p>
+    <p>
+      The final distribution of observations is (12, 5, 2) as of this morning,
+      2019-10-23. That suggests a 95% range of 6-16 buses, mode=9,
+      median=10.
+    </p>
+    <h4>Conclusions</h4>
+    <p>
+      Obviously our initial model is off but I'm not sure how that affects our
+      results. I mean, if our universe has 6 additional windows (i.e. is 23
+      miles long instead of 20 miles) does that change the size of our 95%
+      range? Ok, tried it, got a range of 5-18, mode 12, median 11. So wider
+      ranges, higher median and mode. Kind of what we'd expect.
+    </p>
+    <h4>What did I learn?</h4>
+    <ul>
+      <li>I got some good practical application of ABC.</li>
+      <li>
+        My appilcation wasn't just a rewrite of the basic version I read in
+        whatever book I first learned about ABC in.
+      <li>
+        I got to play with google colab...I don't know that it's faster than
+        my laptop but I did read somewhere that it has access to tenforflow
+        hardware so I'll definitely use it for that.
+      </li>
+    </ul>
+    <h4>What's Missing?</h4>
+    <p>
+      I'd like to not depend on the length of the highway for
+      my estimates. I think I could get around that by picking a spot and simply
+      counting the number of vehicles that pass that point in a fixed timespan
+      on a regular basis.
+    </p>
+    <h4>What's Next?</h4>
+    <p>
+      There are better techniques than ABC, Stan seems to be a toolset to
+      explore some of those options and that's certainly where I'm going next.
+      If I need a better data set I might expand my bus observations or better
+      still use some of the MLB or NBA game data I've gathered.
+    </p>
+  </body>
+</html>
