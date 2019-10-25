@@ -1,8 +1,22 @@
 {
   "league": "MLB",
-  "playYmd": 20191024,
+  "playYmd": 20191025,
   "season": 2019,
-  "bets": [],
+  "bets": [
+    {
+      "gameYmd": 20191025,
+      "tod": 1707,
+      "team": "WSH",
+      "isHome": 1,
+      "versusTeam": "HOU",
+      "prediction": 3.7,
+      "versusPrediction": 3.2,
+      "pays": 1.28,
+      "probability": 0.5438176610872832,
+      "bet": 0.1874252088117234,
+      "mlbGame": []
+    }
+  ],
   "history": [
     {
       "gameYmd": 20190328,
