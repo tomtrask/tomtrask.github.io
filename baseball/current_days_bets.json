@@ -1,19 +1,19 @@
 {
   "league": "MLB",
-  "playYmd": 20191029,
+  "playYmd": 20191030,
   "season": 2019,
   "bets": [
     {
-      "gameYmd": 20191029,
-      "tod": 1707,
+      "gameYmd": 20191030,
+      "tod": 1708,
       "team": "WSH",
       "isHome": 0,
       "versusTeam": "HOU",
-      "prediction": 6.4,
-      "versusPrediction": 2.0,
-      "pays": 1.64,
-      "probability": 0.8336016333002462,
-      "bet": 0.7321392145808839,
+      "prediction": 4.2,
+      "versusPrediction": 2.6,
+      "pays": 1.26,
+      "probability": 0.6376484940087709,
+      "bet": 0.35006793369827155,
       "mlbGame": []
     }
   ],
@@ -101674,6 +101674,19 @@
       "pays": 0.6896551724137931,
       "probability": 0.6458691219182955,
       "bet": 0.13237934869982407,
+      "mlbGame": []
+    },
+    {
+      "gameYmd": 20191029,
+      "tod": 1707,
+      "team": "WSH",
+      "isHome": 0,
+      "versusTeam": "HOU",
+      "prediction": 6.4,
+      "versusPrediction": 2.0,
+      "pays": 1.64,
+      "probability": 0.8336016333002462,
+      "bet": 0.7321392145808839,
       "mlbGame": []
     }
   ]
