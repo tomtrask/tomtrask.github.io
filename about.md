@@ -4,12 +4,16 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+I'm your basic s/w engineer that views everything in life in terms of game
+theory (with apologies to Steven Levitt, yes, game theory has tremendous
+applicability to everyday life).
 
-### More Information
+### This Blog
 
-A place to include any other types of information that you'd like to include about yourself.
+The blog is largely mathematical questions that have occurred to me on my
+morning walks. Sometimes the questions turn into bigger questions that may or
+may not continue in the blog
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[tomtrask@gmail.com](mailto:tomtrask@gmail.com)
